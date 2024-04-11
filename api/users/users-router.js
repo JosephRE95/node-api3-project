@@ -78,6 +78,16 @@ validateUserId,
   }
 });
 
+router.use((err, req, res, next) =>{
+  res.status(err.status || 500).json({
+    customMessage: 'something bad',
+    message: err.message,
+    stack: err.stack,
+  })
+})
+
 // do not forget to export the router
+
+
 
 module.exports= router
