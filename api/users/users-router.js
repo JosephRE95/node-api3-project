@@ -37,7 +37,8 @@ router.post('/', validateUser, (req, res, next) => {
 router.put('/:id', validateUserId, validateUser, (req, res, next) => {
  User.update(req.params.id, { name : req.name })
  .then(() => {
-  return User.getById(req.params.id)
+  return User.getById(req.user.id)
+  
  })
  .then(user => {
   res.json(user)
