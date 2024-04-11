@@ -22,8 +22,8 @@ async function validateUserId(req, res, next) {
       next();
     }
   } catch (err) {
-    res.status(500).json({
-      message: "problem finding user",
+    res.status(404).json({
+      message: "user not found",
     });
   }
   next();
