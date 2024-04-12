@@ -73,7 +73,8 @@ validateUserId,
     const createMessage = await Post.insert({
       user_id: req.params.id,
       text: req.text,
-    })
+    }) 
+    res.status(201).json(createMessage)
   } catch(err) {
     next(err)
   }
